@@ -94,6 +94,7 @@ $(function(){
 					add_element(val);
 				}
 			});
+			$("#widths button").click();
 		}
 	}
 
@@ -119,6 +120,9 @@ $(function(){
 				nice_width = roundNumber(real_perc_width , 5 ); // 100 times by element width (600px) devided by total width (950px)
 			$("#example").append('<div class="example_column" style="width: ' + nice_width + '%; background: ' + random_color() + ';"><span class="values">' + nice_width + '% <br><span class="pixels">(was ' + value + 'px)</span></span></div>');
 		});
+
+		var new_url = '/' + widths.join("/");
+		history.pushState(null, null, new_url);
 
 		return false;
 	});
