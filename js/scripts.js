@@ -59,6 +59,44 @@ $(function(){
 		});
 	}
 
+	function add_element(value) {
+		var value = (typeof value == 'number') ? value : '',
+			num = $("#widths .number_wrapper").length;
+		$("#widths .equals").before('<div class="operator pair pair_' + num +'">+</div><div class="number_wrapper pair_' + num +'"><a href="#" class="minus" data-pair="' + num + '">&#9587;</a><input type="text" class="number" value="' + value + '" /></div>');
+		$("#widths input.number:last").focus();
+		update_total_input();
+		remove_number();
+	}
+
+	// Get the vars from the URL and return an array
+	// This needs validation to make sure only ints are users
+	function get_url_vars() {
+		var url = document.location.href,
+			domain = document.domain,
+			extras = url.replace('http://' + domain, ''),
+			vars = extras.split('/').map(Number),
+			array = $.grep(vars,function(n){
+    			return n;
+			});
+		return array;
+	}
+
+	// This is just horrible, but it works, for now.
+	function pre_populate() {
+		var values = get_url_vars();
+		if (values.length > 0) {
+			$(".pair").not(".pair_1").remove();
+			//$(".operator").not(".pair_1").remove();
+			$.each(values, function(i, val){
+				if (i == 0) {
+					$(".number_wrapper.pair_1 input").attr("value", val);
+				} else {
+					add_element(val);
+				}
+			});
+		}
+	}
+
 	// Update shit on click
 	$("#widths button").on("click", function(){
 
@@ -87,18 +125,17 @@ $(function(){
 
 	// Add element
 	$("#add_el").on("click", function(){
-		var num = $("#widths .number_wrapper").length;
-		$("#widths .equals").before('<div class="operator pair pair_' + num +'">+</div><div class="number_wrapper pair_' + num +'"><a href="#" class="minus" data-pair="' + num + '">&#9587;</a><input type="text" class="number" /></div>');
-		$("#widths input.number:last").focus();
-		update_total_input();
-		remove_number();
+		add_element();
 		return false;
 	});
+
+	pre_populate();
 
 
 	// Run functions
 	update_total_input();
 	remove_number();
+	get_url_vars();
 
 
 });

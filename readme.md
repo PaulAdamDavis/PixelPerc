@@ -1,4 +1,4 @@
-# PixelPerc
+# [PixelPerc](http://pixelperc.com)
 ### A simple tool to help build responsive websites
 
 This is a simple tool to help developers convert fixed pixel widths to percentages. A use-case would be, being handed a typical desktop-sized design, but being told it should be responsive and fluid. Put in the widths of the main columns into the app and get back the percentages.
