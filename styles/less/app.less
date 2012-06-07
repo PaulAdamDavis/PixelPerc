@@ -201,7 +201,7 @@ input {
 	}
 }
 
-#example {
+#example_bar {
 	position: relative;
 	z-index: 30;
 	.clearfix;
@@ -210,20 +210,22 @@ input {
 		//line-height: 50px;
 		text-align: center;
 		float: left;
-		.values {
-			text-shadow: 1px 1px 0px #000, -1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
-			letter-spacing: 2px;
-			color: #fff;
-			font-size: 12px;
-			line-height: 14px;
-			display: block;
-			margin-top: 11px;
-			white-space: nowrap;
-			.pixels {
-				font-size: 10px;
-				color: rgba(255,255,255,0.7);
-				text-shadow: none;
-			}
+	}
+}
+#example_num {
+	.values {
+		text-shadow: 1px 1px 0px #000, -1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000;
+		letter-spacing: 2px;
+		color: #fff;
+		font-size: 12px;
+		line-height: 14px;
+		display: block;
+		margin-top: 11px;
+		white-space: nowrap;
+		.pixels {
+			font-size: 10px;
+			color: rgba(255,255,255,0.7);
+			text-shadow: none;
 		}
 	}
 }
@@ -245,6 +247,32 @@ ol {
 	background: #bada55;
 	color: #000;
 	text-shadow: none;
+}
+
+@media screen and (min-width: 700px) {
+	.example {
+		position: relative;
+		height: 50px;
+	}
+	#example_bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 4;
+	}
+	#example_num {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 6;
+		.values {
+			color: #fff !important;
+			float: left;
+			text-align: center;
+		}
+	}
 }
 
 
@@ -281,10 +309,29 @@ ol {
 			width: 100%;
 		}
 	}
-	#example {
+	/*#example {
 		background: #ccc;
 		.example_column {
 			clear: both;
+		}
+	}*/
+	#example_num {
+		.values {
+			text-shadow: none;
+			color: inherit;
+			font-weight: bold;
+			font-size: 1.2em;
+			margin-bottom: 1em;
+			width: 100% !important;
+			line-height: 1.2em;
+			br {
+				display: none;
+			}
+			.pixels {
+				color: #999;
+				display: inline-block;
+				line-height: 1.2em;
+			}
 		}
 	}
 }

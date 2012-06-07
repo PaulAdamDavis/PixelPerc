@@ -113,12 +113,20 @@ $(function(){
 		}
 
 		// Loop through the remaining inouts and give a % width
-		$("#example").html('');
+		$(".example div").html('');
 		$.each(widths, function(i, value) {
 			var value = value,
 				real_perc_width = 100 * parseFloat(value) / parseFloat(total),
 				nice_width = roundNumber(real_perc_width , 5 ); // 100 times by element width (600px) devided by total width (950px)
-			$("#example").append('<div class="example_column" style="width: ' + nice_width + '%; background: ' + random_color() + ';"><span class="values">' + nice_width + '% <br><span class="pixels">(was ' + value + 'px)</span></span></div>');
+				
+			var color = random_color();
+			var bar = '<div class="example_column" style="width: ' + nice_width + '%; background: ' + color + ';"></div>';
+			var num = '<div class="values" style="width: ' + nice_width + '%; color: ' + color + '">' + nice_width + '% <br><span class="pixels">(was ' + value + 'px)</span></div>';
+			$("#example_bar").append(bar);
+			$("#example_num").append(num);
+
+			//$("#example").append('<div class="example_column" style="width: ' + nice_width + '%; background: ' + random_color() + ';"><span class="values">' + nice_width + '% <br><span class="pixels">(was ' + value + 'px)</span></span></div>');
+			
 		});
 
 		var new_url = '/' + widths.join("/");

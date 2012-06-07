@@ -16,3 +16,4 @@ This is a simple tool to help developers convert fixed pixel widths to percentag
 
 * Convert LESS to CSS
 * Clean up (hasitlly written) JavaScript
+* Account for guttering
