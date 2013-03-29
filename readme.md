@@ -17,3 +17,7 @@ This is a simple tool to help developers convert fixed pixel widths to percentag
 * Convert LESS to CSS
 * Clean up (hasitlly written) JavaScript
 * Account for guttering
+
+## Notes
+
+* The `404.html` is an exact clone of `index.html`. It's required so that linking to calculations don't throw errors in GitHub pages.
