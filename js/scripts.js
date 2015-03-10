@@ -125,7 +125,7 @@ $(function(){
         });
 
         var new_url = '/' + widths.join("/");
-        history.pushState(null, null, new_url);
+        history.replaceState(null, null, new_url);
     }
 
     // Update shit on click
