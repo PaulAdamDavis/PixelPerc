@@ -13,3 +13,11 @@ This is a simple tool to help developers convert fixed pixel widths to percentag
 
 * Clean up (hasitlly written) JavaScript
 * Account for guttering
+
+## Get It Running
+
+The `_config.yml` file has a basebath set to the GitHub Pages url, so get this running locally using:
+
+```
+jekyll serve --baseurl
+```

@@ -3,7 +3,7 @@ title: PixelPerc
 email: pauladamdavisl@gmail.com
 description: A simple tool to help build responsive websites
 
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "http://pauladamdavis.github.io/PixelPerc" # the subpath of your site, e.g. /blog/
 
 sass:
     style: :compressed
